@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div class="contact-section">
+	<div class="contact-title">
+		{{ content.field_contact_para  }}
+	</div>
+	<div class="map">
+		<iframe src="https://maps.google.com/maps?q=new-delhi&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+	<div class="info-row">
+		<div class="info">
+			{{ 	content.field_contact_detail }}
+		</div>
+		<div class="form-section ">
+			<form action="/action_page.php" method="get" class="form-box">
+				<div class="form-row">
+
+					<div class="form-col form-group">
+						<input type="text" name="name" class="form-content" placeholder="Your Name">
+					</div>
+					<div class="form-col form-group">
+						<input type="text" name="email" class="form-content" placeholder="Your Email">
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="text" name="subject" class="form-content" placeholder="Subject">
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" placeholder="Message" id="Textarea" rows="10"></textarea>
+				</div>
+				<div class="form-button">
+					{{ content.field_message }}
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

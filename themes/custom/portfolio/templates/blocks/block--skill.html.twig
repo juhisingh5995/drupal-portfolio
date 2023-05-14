@@ -1,0 +1,106 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+
+{{ title_prefix }}
+{{ title_suffix }}
+<div class="skills-section">
+	<div>
+		{{ content.field_skill_title }}
+	</div>
+	<div class="skill-bar">
+		<div class="skillbar clearfix " data-percent="95%">
+			<div class="skillbar-title" style="background: #d35400;">
+				<span>HTML</span>
+			</div>
+			<div class="skillbar-bar" style="background: #e67e22;"></div>
+			{# <div class="skill-bar-percent Count">95</div> #}
+		</div>
+		<!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="95%">
+			<div class="skillbar-title" style="background: #2980b9;">
+				<span>CSS,SaSS</span>
+			</div>
+			<div class="skillbar-bar" style="background: #3498db;"></div>
+			{# <div class="skill-bar-percent Count">95</div> #}
+		</div>
+		<!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="90%">
+			<div class="skillbar-title" style="background: #2c3e50;">
+				<span>jQuery</span>
+			</div>
+			<div class="skillbar-bar" style="background: #2c3e50;"></div>
+			{# <div class="skill-bar-percent Count">90</div> #}
+		</div>
+		<!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="95%">
+			<div class="skillbar-title" style="background: #46465e;">
+				<span>Bootstrap</span>
+			</div>
+			<div class="skillbar-bar" style="background: #5a68a5;"></div>
+			{# <div class="skill-bar-percent Count">95</div> #}
+		</div>
+		<!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="75%">
+			<div class="skillbar-title" style="background: #333333;">
+				<span>Drupal</span>
+			</div>
+			<div class="skillbar-bar" style="background: #525252;"></div>
+			{# <div class="skill-bar-percent Count">75</div> #}
+		</div>
+		<!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="80%">
+			<div class="skillbar-title" style="background: #27ae60;">
+				<span>PatternLabs</span>
+			</div>
+			<div class="skillbar-bar" style="background: #2ecc71;"></div>
+			{# <div class="skill-bar-percent Single Count">80</div> #}
+		</div>
+		<!-- End Skill Bar -->
+
+		<div class="skillbar clearfix " data-percent="80%">
+			<div class="skillbar-title" style="background: #124e8c;">
+				<span>Wow,Animation</span>
+			</div>
+			<div class="skillbar-bar" style="background: #4288d0;"></div>
+			{# <div class="skill-bar-percent Count">80</div> #}
+		</div>
+		<!-- End Skill Bar -->
+	</div>
+</div>
